@@ -1,0 +1,143 @@
+/* General Body Styling */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: white;
+}
+
+/* Homepage Styling */
+body.homepage {
+    background-color: #1c1c1c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    text-align: center;
+}
+
+.ai-name {
+    font-size: 48px;
+    color: #ff4500;
+    margin-bottom: 20px;
+}
+
+.tagline {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+#try-it-button {
+    padding: 15px 30px;
+    font-size: 18px;
+    color: white;
+    background-color: #ff4500;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#try-it-button:hover {
+    background-color: #e63e00;
+}
+
+/* Chat Page Styling */
+body.chat-page {
+    background-color: #1c1c1c;
+}
+
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    height: calc(100vh - 100px);
+    overflow-y: auto;
+    border: 1px solid white;
+    border-radius: 10px;
+    background: #121212;
+}
+
+.chat-header {
+    text-align: center;
+    padding: 15px;
+    background-color: #ff4500;
+    color: white;
+    font-size: 24px;
+    border-radius: 10px 10px 0 0;
+}
+
+.chat-messages {
+    flex-grow: 1;
+    padding: 10px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+input#user-input {
+    width: calc(100% - 100px);
+    padding: 15px;
+    font-size: 16px;
+    color: white;
+    background-color: #1c1c1c;
+    border: none;
+    border-bottom: 2px solid white;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+}
+
+button#send-button {
+    width: 80px;
+    padding: 15px;
+    font-size: 16px;
+    color: white;
+    background-color: #ff4500;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+}
+
+button#send-button:hover {
+    background-color: #e63e00;
+}
+
+.message {
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 70%;
+}
+
+.user-message {
+    background-color: #ff4500;
+    color: white;
+    align-self: flex-end;
+}
+
+.ai-message {
+    background-color: #3e3e3e;
+    color: white;
+    align-self: flex-start;
+}
+
+.typing-indicator {
+    font-style: italic;
+    color: gray;
+}
+
+/* Scrollbar Styling */
+.chat-messages::-webkit-scrollbar {
+    width: 6px;
+}
+
+.chat-messages::-webkit-scrollbar-thumb {
+    background-color: #ff4500;
+    border-radius: 3px;
+}
+
+.chat-messages::-webkit-scrollbar-track {
+    background-color: #1c1c1c;
+}

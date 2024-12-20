@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error</title>
+    <style>
+        body {
+            background-color: #1c1c1c;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        h1 {
+            font-size: 32px;
+        }
+        p {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Oops, something went wrong!</h1>
+    <p id="error-message">Please wait while we resolve the issue.</p>
+    <script>
+        // Fetch the error message from localStorage and display it
+        const errorMessage = localStorage.getItem("errorMessage");
+        if (errorMessage) {
+            document.getElementById("error-message").textContent = errorMessage;
+            localStorage.removeItem("errorMessage"); // Remove the error message after displaying it
+        }
+    </script>
+</body>
+</html>

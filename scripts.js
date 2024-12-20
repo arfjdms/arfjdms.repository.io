@@ -3,7 +3,10 @@ const userInput = document.getElementById("user-input");
 const sendButton = document.getElementById("send-button");
 
 // Backend URL
-const backendUrl = "http://127.0.0.1:5000/chat"; // Update this with your backend URL
+const backendUrl = "https://e088-2600-1700-d620-51b0-a537-84f9-cfc7-fd4e.ngrok-free.app/chat"; // Update with your backend URL
+
+// Refined prompt to guide GPT-2
+const SYSTEM_PROMPT = `You are a helpful and concise assistant. Answer questions in simple language, avoiding unnecessary complexity or unrelated topics.\n\nUser:`;
 
 // Function to add messages to the chat
 function addMessage(content, isUser, isTemporary = false) {
@@ -48,16 +51,8 @@ function overwriteTypingIndicator(response) {
 // Function to check if the backend is reachable
 function checkBackendStatus() {
     return fetch(backendUrl, { method: "GET" })
-        .then(response => {
-            if (response.ok) {
-                return true; // Backend is working
-            } else {
-                return false; // Backend is down
-            }
-        })
-        .catch(() => {
-            return false; // Backend is down or unreachable
-        });
+        .then(response => response.ok)
+        .catch(() => false);
 }
 
 // Send message and fetch AI response
@@ -65,11 +60,11 @@ function sendMessage() {
     const userMessage = userInput.value.trim();
     if (!userMessage) return;
 
-    // Add the structured prompt in front of user input
-    const structuredMessage = `You are a helpful and concise assistant. Answer questions in simple language, avoiding unnecessary complexity or unrelated topics.\n\nUser: ${userMessage}`;
-
     addMessage(userMessage, true); // Display user message
     userInput.value = ""; // Clear input field
+
+    // Refined message structure for GPT-2
+    const structuredMessage = `${SYSTEM_PROMPT} ${userMessage}`;
 
     // Check if the backend is available
     checkBackendStatus().then(isAvailable => {

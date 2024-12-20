@@ -3,7 +3,7 @@ const userInput = document.getElementById("user-input");
 const sendButton = document.getElementById("send-button");
 
 // Backend URL
-const backendUrl = "http://127.0.0.1:5000/chat"; // Update this with your backend URL
+const backendUrl = "https://e088-2600-1700-d620-51b0-a537-84f9-cfc7-fd4e.ngrok-free.app/chat"; // Update this with your backend URL
 
 // Function to add messages to the chat
 function addMessage(content, isUser, isTemporary = false) {

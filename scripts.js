@@ -3,7 +3,7 @@ const userInput = document.getElementById("user-input");
 const sendButton = document.getElementById("send-button");
 
 // Backend URL
-const backendUrl = "https://e088-2600-1700-d620-51b0-a537-84f9-cfc7-fd4e.ngrok-free.app/chat"; // Update this with your backend URL
+const backendUrl = "http://127.0.0.1:5000/chat"; // Update this with your backend URL
 
 // Function to add messages to the chat
 function addMessage(content, isUser, isTemporary = false) {
@@ -65,6 +65,9 @@ function sendMessage() {
     const userMessage = userInput.value.trim();
     if (!userMessage) return;
 
+    // Add the structured prompt in front of user input
+    const structuredMessage = `You are a helpful assistant. Answer questions clearly and concisely.\n\nUser: ${userMessage}`;
+
     addMessage(userMessage, true); // Display user message
     userInput.value = ""; // Clear input field
 
@@ -77,7 +80,7 @@ function sendMessage() {
             fetch(backendUrl, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ message: userMessage }),
+                body: JSON.stringify({ message: structuredMessage }),
             })
                 .then((response) => response.json())
                 .then((data) => {

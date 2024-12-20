@@ -5,7 +5,6 @@ const sendButton = document.getElementById("send-button");
 // Backend URL
 const backendUrl = "https://e088-2600-1700-d620-51b0-a537-84f9-cfc7-fd4e.ngrok-free.app/chat"; // Update with Ngrok URL
 
-
 // Refined prompt to guide GPT-2
 const SYSTEM_PROMPT = `You are a helpful and concise assistant. Answer questions in simple language, avoiding unnecessary complexity or unrelated topics.\n\nUser:`;
 
@@ -55,7 +54,6 @@ function checkBackendStatus() {
         .then(response => response.ok)
         .catch(() => false);
 }
-
 
 // Send message and fetch AI response
 function sendMessage() {

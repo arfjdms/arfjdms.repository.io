@@ -50,14 +50,10 @@ function overwriteTypingIndicator(response) {
 }
 
 // Function to check if the backend is reachable
-//function checkBackendStatus() {
-//    return fetch(backendUrl, { method: "GET" })
-//        .then(response => response.ok)
-//        .catch(() => false);
-//}
-
 function checkBackendStatus() {
-    return true; // Always returns true, indicating the backend is "always okay"
+    return fetch(backendUrl, { method: "GET" })
+        .then(response => response.ok)
+        .catch(() => false);
 }
 
 

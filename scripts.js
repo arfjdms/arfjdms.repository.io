@@ -40,14 +40,6 @@ function removeTypingIndicator() {
     }
 }
 
-// Overwrite typing indicator with AI response
-function overwriteTypingIndicator(response) {
-    const typingMessage = document.getElementById("typing-message");
-    if (typingMessage) {
-        typingMessage.textContent = response;
-    }
-}
-
 // Function to check if the backend is reachable
 function checkBackendStatus() {
     return fetch(backendUrl, { method: "GET" })
@@ -79,7 +71,8 @@ function sendMessage() {
             })
                 .then((response) => response.json())
                 .then((data) => {
-                    overwriteTypingIndicator(data.response); // Replace typing indicator with AI response
+                    removeTypingIndicator(); // Remove typing indicator
+                    addMessage(data.response, false); // Add AI response as a new message
                 })
                 .catch((error) => {
                     removeTypingIndicator();

@@ -14,6 +14,7 @@ function addMessage(content, isUser, isTemporary = false) {
     messageDiv.className = `message ${isUser ? "user-message" : "ai-message"}`;
     messageDiv.textContent = content;
 
+    // If it's a temporary message (typing indicator), add an id
     if (isTemporary) {
         messageDiv.id = "typing-message";
     }
@@ -32,7 +33,7 @@ function showTypingIndicator() {
     typingMessage.appendChild(dots);
 }
 
-// Remove typing indicator
+// Remove typing indicator after response is received
 function removeTypingIndicator() {
     const typingMessage = document.getElementById("typing-message");
     if (typingMessage) {

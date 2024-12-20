@@ -3,7 +3,7 @@ const userInput = document.getElementById("user-input");
 const sendButton = document.getElementById("send-button");
 
 // Backend URL
-const backendUrl = "http://192.168.1.77:5000/chat"; // Update with Ngrok URL
+const backendUrl = "https://e088-2600-1700-d620-51b0-a537-84f9-cfc7-fd4e.ngrok-free.app/chat"; // Update with Ngrok URL
 
 
 // Refined prompt to guide GPT-2

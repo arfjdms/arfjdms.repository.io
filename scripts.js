@@ -66,7 +66,7 @@ function sendMessage() {
     if (!userMessage) return;
 
     // Add the structured prompt in front of user input
-    const structuredMessage = `You are a helpful assistant. Answer questions clearly and concisely.\n\nUser: ${userMessage}`;
+    const structuredMessage = `You are a helpful and concise assistant. Answer questions in simple language, avoiding unnecessary complexity or unrelated topics.\n\nUser: ${userMessage}`;
 
     addMessage(userMessage, true); // Display user message
     userInput.value = ""; // Clear input field
